@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="desafio_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoG-0d-dkZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping Mobfiq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-Jz-snU">
+                                        <rect key="frame" x="121" y="52" width="133" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="C6c-Hx-YNy"/>
+                                    <constraint firstItem="mgs-Jz-snU" firstAttribute="leading" secondItem="PoG-0d-dkZ" secondAttribute="leading" constant="121" id="l2n-On-SL9"/>
+                                    <constraint firstItem="mgs-Jz-snU" firstAttribute="top" secondItem="PoG-0d-dkZ" secondAttribute="top" constant="52" id="qkF-RQ-Ncl"/>
+                                    <constraint firstAttribute="trailing" secondItem="mgs-Jz-snU" secondAttribute="trailing" constant="121" id="uQR-Nm-DcA"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hIT-EU-vYB">
+                                <rect key="frame" x="0.0" y="100" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PoG-0d-dkZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5fS-nF-8eF"/>
+                            <constraint firstItem="hIT-EU-vYB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="S9b-9u-V6e"/>
+                            <constraint firstItem="hIT-EU-vYB" firstAttribute="top" secondItem="PoG-0d-dkZ" secondAttribute="bottom" symbolic="YES" id="UNf-Tx-d60"/>
+                            <constraint firstItem="hIT-EU-vYB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VCC-ga-YFi"/>
+                            <constraint firstItem="PoG-0d-dkZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ibT-s3-l2L"/>
+                            <constraint firstItem="PoG-0d-dkZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uWK-gZ-aIR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482.39999999999998" y="97.536945812807886"/>
+        </scene>
+    </scenes>
+</document>
