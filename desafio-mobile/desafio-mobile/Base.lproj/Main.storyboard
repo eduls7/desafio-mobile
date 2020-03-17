@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j9A-JR-6Aa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w08-pN-l3z">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,7 +7,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="Uwo-Rv-nIz">
+            <objects>
+                <tabBarController id="w08-pN-l3z" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zb3-Bh-U5y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="496-3E-KTS"/>
+                        <segue destination="j9A-JR-6Aa" kind="relationship" relationship="viewControllers" id="hNC-xk-sf3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQh-eM-tns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1606" y="95"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="desafio_mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +82,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="VjG-cq-2Bk"/>
                     <connections>
+                        <outlet property="pesquisaBar" destination="hIT-EU-vYB" id="h6B-4k-gGv"/>
                         <outlet property="tabela" destination="5ka-f6-5nE" id="Wl7-bn-1f3"/>
                     </connections>
                 </viewController>
@@ -72,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="-482.39999999999998" y="97.536945812807886"/>
         </scene>
-        <!--Categoria View Controller-->
+        <!--Categorias-->
         <scene sceneID="wp5-4A-woN">
             <objects>
                 <viewController id="j9A-JR-6Aa" customClass="CategoriaViewController" customModule="desafio_mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,10 +115,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6M-Nx-lC9">
+                                <rect key="frame" x="16" y="44" width="270" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="FSg-UR-dTQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="J6M-Nx-lC9" firstAttribute="top" secondItem="T9R-Bz-KyU" secondAttribute="top" id="6Az-8r-GNZ"/>
+                            <constraint firstItem="J6M-Nx-lC9" firstAttribute="leading" secondItem="T9R-Bz-KyU" secondAttribute="leading" constant="16" id="HVC-zS-VlN"/>
+                            <constraint firstItem="T9R-Bz-KyU" firstAttribute="trailing" secondItem="J6M-Nx-lC9" secondAttribute="trailing" constant="89" id="YZs-i2-RS1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T9R-Bz-KyU"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Categorias" id="h3F-o7-hbJ"/>
                     <connections>
                         <outlet property="tabelaCategoria" destination="pF4-JR-fDT" id="WnB-1L-JBc"/>
                     </connections>

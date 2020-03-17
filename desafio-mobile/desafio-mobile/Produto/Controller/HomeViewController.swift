@@ -11,6 +11,7 @@ import Alamofire
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var pesquisaProduto: UISearchBar!
     @IBOutlet weak var tabela: UITableView!
     var produtos: [Products] = []
     
@@ -19,6 +20,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.tabela.dataSource = self
         self.tabela.delegate = self
+        pesquisaProduto.delegate = self
         getProducts()
     }
 }
@@ -63,6 +65,12 @@ extension HomeViewController {
               break
             }
         }
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
     }
 }
 

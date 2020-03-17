@@ -25,7 +25,7 @@ struct Category: Decodable {
     let id: Int
     let name: String
     let redirect: Redirect
-    let subCategories: [Category]?
+    let subCategories: [Category]
     let highlight: Bool
     let icon: String?
     let categoryListOrder, categoryTreeOrder, linkID: Int
