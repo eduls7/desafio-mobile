@@ -53,12 +53,14 @@ struct Sellers: Decodable {
     let name: String
     let price: Double
     let listPrice: Double
+    let bestInstallment: BestInstallment
     
     enum CodingKeys: String, CodingKey {
         case id = "Id"
         case name = "Name"
         case price = "Price"
         case listPrice = "ListPrice"
+        case bestInstallment = "BestInstallment"
     }
     
 }
@@ -66,13 +68,11 @@ struct Sellers: Decodable {
 struct BestInstallment: Decodable {
    let count: Int
    let value, total: Double
-   let rate: Int
 
    enum CodingKeys: String, CodingKey {
        case count = "Count"
        case value = "Value"
        case total = "Total"
-       case rate = "Rate"
    }
 }
 

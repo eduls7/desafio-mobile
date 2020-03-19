@@ -42,30 +42,20 @@ extension CategoriaViewController: UITableViewDataSource, UITableViewDelegate {
 extension CategoriaViewController {
     func getCategorias() {
         
-        
-        AF.request("https://desafio.mobfiq.com.br/StorePreference/CategoryTree").responseDecodable(of: Categoria.self) { (response) in
-            switch response.result {
+        let url = "https://desafio.mobfiq.com.br/StorePreference/CategoryTree"
+        AF.request(url, method: .get).responseDecodable(of: Categoria.self) { (response) in
+        switch response.result {
             case .success:
-              if let jsonResponse = response.value  {
-                self.categorias = jsonResponse.categories
-                self.tabelaCategoria.reloadData()
-
-              }
-              break
+                if let jsonResponse = response.value  {
+                    //self.categorias = jsonResponse.categories
+                    //self.tabelaCategoria.reloadData()
+                }
+            break
             case .failure(let error):
                 print(error)
-              break
-            }
+            break
         }
-        
-      
-//            // 1
-//            let request = AF.request("https://desafio.mobfiq.com.br/StorePreference/CategoryTree")
-//            // 2
-//            request.responseJSON { (data) in
-//              print(data)
-//            }
-        
-        
+      }
     }
 }
+
