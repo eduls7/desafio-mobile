@@ -9,32 +9,26 @@
 import UIKit
 import Alamofire
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching{
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
 
 
-    @IBOutlet weak var searchProduto: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var colecaoProdutos: UICollectionView!
     //var countProdutos = 10
     
     var produtos: [Products] = []
+    var searchProdutos: [Products] = []
+    var produtosTotal: [Products] = []
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         getProducts()
-        searchProduto.delegate = self
+        self.searchBar.delegate = self
         self.colecaoProdutos.dataSource = self
         self.colecaoProdutos.delegate = self
-        self.colecaoProdutos.prefetchDataSource = self
     }
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        if indexPaths.contains(where: isLoadingCell) {
-          getProducts()
-        }
-    }
-    
-    
+        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return produtos.count
     }
@@ -42,23 +36,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celulaProduto = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaProduto", for: indexPath) as! HomeCollectionViewCell
+        
         let produto = produtos[indexPath.row]
         
-        
         celulaProduto.configuraCelula(produto: produto)
-        
-//        if isLoadingCell(for: indexPath) {
-//          return celulaProduto
-//        } else {
-//            celulaProduto.nomeProduto.text = produto.name
-//
-//            celulaProduto.precoTabela.text = String("R$ \(produto.skus[0].sellers[0].listPrice)")
-//            celulaProduto.precoFinal.text = String("R$ \(produto.skus[0].sellers[0].price)")
-//            getImage(url: produto.skus[0].images[0].imageUrl, imageProduto: celulaProduto.imagemProduto)
-//            celulaProduto.layer.borderWidth = 0.5
-//            celulaProduto.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0,
-//                                                    blue: 85.0/255.0, alpha: 1).cgColor
-//        }
         
         return celulaProduto
     }
@@ -95,23 +76,5 @@ extension HomeViewController {
               break
             }
         }
-    }
-}
-
-private extension HomeViewController {
-  func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return indexPath.row >= 10
-  }
-
-  func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-    let indexPathsForVisibleItems = colecaoProdutos.indexPathsForVisibleItems
-    let indexPathsIntersection = Set(indexPathsForVisibleItems).intersection(indexPaths)
-    return Array(indexPathsIntersection)
-  }
-}
-
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
     }
 }

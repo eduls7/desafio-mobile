@@ -35,8 +35,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 0.5
         layer.borderColor = UIColor(red: 235/255.0, green: 235/255.0, blue: 235/255.0, alpha: 1).cgColor
         if precoTab != precoFin {
-            precoTabela.text = String(format:"R$ %.02f", precoTabela)
-            precoFinal.text = String(format:"R$ %.02f", precoFinal)
+            precoTabela.text = String(format:"R$ %.02f", precoTab)
+            precoFinal.text = String(format:"R$ %.02f", precoFin)
             let descontoOff = desconto(precoFinal: precoFin, precoTabela: precoTab)
             desconto.text = String("\(Int(descontoOff.rounded()))% OFF")
             desconto.textColor = .green
