@@ -8,37 +8,75 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
     @IBOutlet weak var pesquisaProduto: UISearchBar!
-    @IBOutlet weak var tabela: UITableView!
+    @IBOutlet weak var colecaoProdutos: UICollectionView!
+    
     var produtos: [Products] = []
+    //var image: String?
+    //var jpg: UIImage?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.tabela.dataSource = self
-        self.tabela.delegate = self
-        pesquisaProduto.delegate = self
+        //print(produtos.count)
+        
         getProducts()
+        //pesquisaProduto.delegate = self
+        self.colecaoProdutos.dataSource = self
+        self.colecaoProdutos.delegate = self
+//        image = produtos[0].skus[0].images[0].imageUrl
+//        print(image!)
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return produtos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let celulaProduto = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaProduto", for: indexPath) as! HomeCollectionViewCell
+        let produto = produtos[indexPath.row]
+        celulaProduto.nomeProduto.text = produto.name
+        celulaProduto.precoTabela.text = String(produto.skus[0].sellers[0].listPrice)
+        celulaProduto.precoFinal.text = String(produto.skus[0].sellers[0].price)
+        getImage(url: produto.skus[0].images[0].imageUrl, imageProduto: celulaProduto.imagemProduto)
+        celulaProduto.layer.borderWidth = 0.5
+        celulaProduto.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0,
+                                                  blue: 85.0/255.0, alpha: 1).cgColor
+        
+        
+        return celulaProduto
+    }
+    
+    func getImage (url: String, imageProduto: UIImageView)  {
+        let downloader = ImageDownloader()
+        let urlRequest = URLRequest(url: URL(string: url)!)
+
+        downloader.download(urlRequest) { response in
+            if case .success(let image) = response.result {
+                imageProduto.image = image
+            }
+        }
+    }
+    
+        
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        produtos.count
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width:(collectionView.frame.height-220)/2, height: 430)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
-        let itemProduto = produtos[indexPath.row]
-        cell.textLabel?.text = itemProduto.name
-        
-        return cell
-    }
-    
-    
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
 }
 
 extension HomeViewController {
@@ -56,8 +94,7 @@ extension HomeViewController {
             case .success:
               if let jsonResponse = response.value  {
                 self.produtos = jsonResponse.products
-                self.tabela.reloadData()
-                print(jsonResponse.products[0].skus[0].images[0].imageUrl)
+                self.colecaoProdutos.reloadData()
               }
               break
             case .failure(let error):
@@ -65,24 +102,13 @@ extension HomeViewController {
               break
             }
         }
-    }
-}
-
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+//extension HomeViewController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        //searchText.rangeOfCharacter(from: searchText)
+//    }
+//}

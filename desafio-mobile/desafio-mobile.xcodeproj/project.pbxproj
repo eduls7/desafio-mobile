@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		976AA726CABC45E525DC5CA5 /* Pods_desafio_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E52751E03FA6618C9B15AA /* Pods_desafio_mobile.framework */; };
+		3E84291A0D516E9059BFAF8D /* libPods-desafio-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B25D1B9D7056BAFC0F0C1BD /* libPods-desafio-mobile.a */; };
 		F97CAEFB242045CD004EE622 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CAEFA242045CD004EE622 /* Categoria.swift */; };
 		F97CAF0024205BDE004EE622 /* Produtos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CAEFF24205BDE004EE622 /* Produtos.swift */; };
 		F9A8FDFF241B26CA0056E4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8FDFE241B26CA0056E4F5 /* AppDelegate.swift */; };
@@ -17,12 +17,13 @@
 		F9A8FE08241B26CD0056E4F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A8FE07241B26CD0056E4F5 /* Assets.xcassets */; };
 		F9A8FE0B241B26CD0056E4F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A8FE09241B26CD0056E4F5 /* LaunchScreen.storyboard */; };
 		F9CFECC22420D2CF0064C2D5 /* CategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CFECC12420D2CF0064C2D5 /* CategoriaViewController.swift */; };
+		F9CFECC4242183440064C2D5 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CFECC3242183440064C2D5 /* HomeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D54D74CC954DCB493264CEC /* Pods-desafio-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-mobile.release.xcconfig"; path = "Target Support Files/Pods-desafio-mobile/Pods-desafio-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		54BF4B6FC3C0BBE4C39960E7 /* Pods-desafio-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-mobile.debug.xcconfig"; path = "Target Support Files/Pods-desafio-mobile/Pods-desafio-mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		A8E52751E03FA6618C9B15AA /* Pods_desafio_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B25D1B9D7056BAFC0F0C1BD /* libPods-desafio-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-desafio-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CAEFA242045CD004EE622 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		F97CAEFF24205BDE004EE622 /* Produtos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produtos.swift; sourceTree = "<group>"; };
 		F9A8FDFB241B26CA0056E4F5 /* desafio-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +35,7 @@
 		F9A8FE0A241B26CD0056E4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A8FE0C241B26CD0056E4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9CFECC12420D2CF0064C2D5 /* CategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaViewController.swift; sourceTree = "<group>"; };
+		F9CFECC3242183440064C2D5 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				976AA726CABC45E525DC5CA5 /* Pods_desafio_mobile.framework in Frameworks */,
+				3E84291A0D516E9059BFAF8D /* libPods-desafio-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +53,7 @@
 		3A8E28CC95A11396664A1B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8E52751E03FA6618C9B15AA /* Pods_desafio_mobile.framework */,
+				7B25D1B9D7056BAFC0F0C1BD /* libPods-desafio-mobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +113,7 @@
 		F97CAEF824203F1B004EE622 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F9CFECC3242183440064C2D5 /* HomeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,7 +178,6 @@
 				F9A8FDF7241B26CA0056E4F5 /* Sources */,
 				F9A8FDF8241B26CA0056E4F5 /* Frameworks */,
 				F9A8FDF9241B26CA0056E4F5 /* Resources */,
-				3D0EA9464E08711D06B50822 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,23 +235,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D0EA9464E08711D06B50822 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-desafio-mobile/Pods-desafio-mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-desafio-mobile/Pods-desafio-mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-desafio-mobile/Pods-desafio-mobile-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F282A36F9B47787B724F665B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9CFECC4242183440064C2D5 /* HomeCollectionViewCell.swift in Sources */,
 				F9CFECC22420D2CF0064C2D5 /* CategoriaViewController.swift in Sources */,
 				F9A8FE03241B26CA0056E4F5 /* HomeViewController.swift in Sources */,
 				F9A8FDFF241B26CA0056E4F5 /* AppDelegate.swift in Sources */,

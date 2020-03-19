@@ -43,13 +43,13 @@ extension CategoriaViewController {
     func getCategorias() {
         
         
-        AF.request("https://desafio.mobfiq.com.br/Search/Criteria").responseDecodable(of: Categoria.self) { (response) in
+        AF.request("https://desafio.mobfiq.com.br/StorePreference/CategoryTree").responseDecodable(of: Categoria.self) { (response) in
             switch response.result {
             case .success:
               if let jsonResponse = response.value  {
                 self.categorias = jsonResponse.categories
                 self.tabelaCategoria.reloadData()
-               
+
               }
               break
             case .failure(let error):
@@ -57,5 +57,15 @@ extension CategoriaViewController {
               break
             }
         }
+        
+      
+//            // 1
+//            let request = AF.request("https://desafio.mobfiq.com.br/StorePreference/CategoryTree")
+//            // 2
+//            request.responseJSON { (data) in
+//              print(data)
+//            }
+        
+        
     }
 }

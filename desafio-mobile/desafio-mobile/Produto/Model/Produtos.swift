@@ -11,39 +11,26 @@ import Foundation
 
 struct Produto: Decodable {
     let size: Int
-    let offset: Int
     let total: Int
-    let delay: Double
     let products: [Products]
-    let apiQuery: String
     
     enum CodingKeys: String, CodingKey {
         case size = "Size"
-        case offset = "Offset"
         case total = "Total"
-        case delay = "Delay"
         case products = "Products"
-        case apiQuery = "ApiQuery"
     }
     
 }
 
 struct Products: Decodable {
-   let availability: Bool
-   let skus: [Skus]
-   let name, id, brand, productDescription: String
-   let category: String
-
-   enum CodingKeys: String, CodingKey {
-       case availability = "Availability"
-       case skus = "Skus"
-       case name = "Name"
-       case id = "Id"
-       case brand = "Brand"
-       case productDescription = "Description"
-       case category = "Category"
-
-   }
+    let skus: [Skus]
+    let name: String
+    let id: String
+    enum CodingKeys: String, CodingKey {
+        case skus = "Skus"
+        case name = "Name"
+        case id = "Id"
+    }
 }
 
 struct Skus: Decodable {
@@ -64,14 +51,12 @@ struct Skus: Decodable {
 struct Sellers: Decodable {
     let id: String
     let name: String
-    let quantity: Int
     let price: Double
     let listPrice: Double
     
     enum CodingKeys: String, CodingKey {
         case id = "Id"
         case name = "Name"
-        case quantity = "Quantity"
         case price = "Price"
         case listPrice = "ListPrice"
     }
@@ -90,12 +75,6 @@ struct BestInstallment: Decodable {
        case rate = "Rate"
    }
 }
-
-enum Name: String, Decodable {
-   case philips = "Philips"
-   case polishop = "polishop"
-}
-
 
 struct Images: Decodable {
     let imageUrl: String

@@ -3,8 +3,11 @@
 
 target 'desafio-mobile' do
  
-  use_frameworks!
+  #use_frameworks!
+  use_modular_headers!
   
   pod 'Alamofire', '~> 5.0'
+  pod 'AlamofireImage', '~> 4.0'
 
 end
+.
